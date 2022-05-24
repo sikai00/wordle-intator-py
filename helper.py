@@ -43,6 +43,6 @@ def filter_for_present_letters(possible_guess_list, present_letters):
 def get_possible_guess(guess, guess_result, absent_letters, present_letters, word_bank_file_name):
   regex = build_regex(guess, guess_result, absent_letters, present_letters)
   with open(word_bank_file_name, 'r') as f:
-    long_word_bank_string = '|'.join(f.read().split('\n'))
+    long_word_bank_string = f.read()
     unfiltered_guess_list = re.findall(regex, long_word_bank_string)
     return filter_for_present_letters(unfiltered_guess_list, present_letters)
